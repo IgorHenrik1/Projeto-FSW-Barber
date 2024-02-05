@@ -94,6 +94,7 @@ const ServiceItem = ({
             });
 
             setSheetIsOpen(false);
+
             setHour(undefined);
             setDate(undefined);
             toast('Reserva realizada com sucesso!', {
@@ -166,7 +167,10 @@ const ServiceItem = ({
                                     currency: 'BRL',
                                 }).format(Number(service.price))}
                             </p>
-                            <Sheet>
+                            <Sheet
+                                open={sheetIsOpen}
+                                onOpenChange={setSheetIsOpen}
+                            >
                                 <SheetTrigger asChild>
                                     <Button
                                         variant="secondary"
